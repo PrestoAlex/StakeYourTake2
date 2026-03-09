@@ -24,10 +24,20 @@ const WalletState: WalletState = {
 };
 
 function getProvider(): OPNetProvider | null {
-  if (typeof window === 'undefined' || !window.opnet) {
+  if (typeof window === 'undefined') {
     return null;
   }
-  return window.opnet;
+  
+  // Safe check for opnet provider without triggering errors
+  try {
+    if (!window.opnet) {
+      return null;
+    }
+    return window.opnet;
+  } catch (error) {
+    console.warn('Error accessing opnet provider:', error);
+    return null;
+  }
 }
 
 async function callProvider(methods: string[], params: any[] = []): Promise<any> {

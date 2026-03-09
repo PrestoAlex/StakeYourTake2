@@ -1,6 +1,7 @@
 import { CONTRACT_ADDRESSES, CONTRACT_ADDRESSES_HEX, TOKEN_ADDRESSES, TOKEN_ADDRESSES_HEX } from '../config/contracts';
 import { getTokenContract, OP20_ABI } from './tokenService';
 import { Address } from '@btc-vision/transaction';
+import { FallbackBlockchainService } from './fallbackService';
 
 // ABI для StakeTracker
 export const STAKE_TRACKER_ABI = [

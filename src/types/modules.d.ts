@@ -21,3 +21,12 @@ declare module 'https://esm.sh/opnet@1.8.1-rc.17' {
 declare module 'https://esm.sh/@btc-vision/bitcoin@7.0.0-rc.6' {
   export * from '@btc-vision/bitcoin';
 }
+
+declare global {
+  interface Window {
+    opnet?: any;
+    ethereum?: any;
+    tronWeb?: any;
+    tronLink?: any;
+  }
+}
