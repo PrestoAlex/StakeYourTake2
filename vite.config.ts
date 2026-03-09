@@ -24,9 +24,6 @@ export default defineConfig({
         },
       },
     },
-    commonjsOptions: {
-      include: [],
-    },
   },
   server: {
     headers: {
