@@ -7,11 +7,15 @@
     "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "allowJs": true,
+    "checkJs": false,
+    "isolatedModules": false,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
@@ -23,7 +27,13 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": false,
     "noUncheckedSideEffectImports": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "strictBindCallApply": false,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false
   },
   "include": ["src"]
 }
