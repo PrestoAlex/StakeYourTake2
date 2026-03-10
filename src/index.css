@@ -5,26 +5,26 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #F5F0E8;
-  --color-bg-secondary: #EDE7DB;
-  --color-bg-card: #FFFDF8;
-  --color-bg-card-hover: #FFF9EF;
-  --color-bg-warm: #F0E6D4;
-  --color-gold: #C9A84C;
-  --color-gold-light: #E2C97E;
-  --color-gold-dark: #A68A3E;
-  --color-silver: #A8A8A8;
-  --color-silver-light: #C5C5C5;
-  --color-text-primary: #2C2418;
-  --color-text-secondary: #7A6F5F;
-  --color-text-muted: #A69D8E;
+  --color-bg-primary: #0F1115;
+  --color-bg-secondary: #1A1D23;
+  --color-bg-card: #F7F4ED;
+  --color-bg-card-hover: #E8E2D5;
+  --color-bg-warm: #2A2F38;
+  --color-gold: #FF7A3D;
+  --color-gold-light: #FF8A4D;
+  --color-gold-dark: #E66A2D;
+  --color-silver: #7A8CFF;
+  --color-silver-light: #8A9CFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B6B6B;
+  --color-text-muted: #9A9A9A;
   --color-confidence-high: #4CAF50;
   --color-confidence-medium: #E6A817;
   --color-confidence-low: #D44638;
-  --color-border: #DDD5C4;
-  --color-border-gold: #C9A84C40;
-  --color-accent: #8B6914;
-  --color-accent-light: #C9A84C;
+  --color-border: #2A2F38;
+  --color-border-gold: #FF7A3D40;
+  --color-accent: #FF7A3D;
+  --color-accent-light: #FF8A4D;
 }
 
 * {
@@ -35,8 +35,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background-color: #F5F0E8;
-  color: #2C2418;
+  background-color: #0F1115;
+  color: #F7F4ED;
   overflow-x: hidden;
 }
 
@@ -46,29 +46,29 @@ body {
 }
 
 .bg-bg-primary {
-  background-color: #F5F0E8 !important;
+  background-color: #0F1115 !important;
   background-image: none !important;
 }
 
 .bg-card {
-  background-color: #FFFDF8 !important;
-  border: 1px solid #DDD5C4 !important;
+  background-color: #F7F4ED !important;
+  border: 1px solid #2A2F38 !important;
 }
 
 .text-primary {
-  color: #2C2418 !important;
+  color: #F7F4ED !important;
 }
 
 .text-secondary {
-  color: #7A6F5F !important;
+  color: #6B6B6B !important;
 }
 
 .gold {
-  color: #C9A84C !important;
+  color: #FF7A3D !important;
 }
 
 .silver {
-  color: #A8A8A8 !important;
+  color: #7A8CFF !important;
 }
 
 /* Ensure navbar positioning */
@@ -78,8 +78,8 @@ body {
   left: 0 !important;
   right: 0 !important;
   z-index: 50 !important;
-  background-color: #F5F0E8 !important;
-  border-bottom: 1px solid #DDD5C4 !important;
+  background-color: #0F1115 !important;
+  border-bottom: 1px solid #2A2F38 !important;
 }
 
 /* Ensure content has proper spacing */
