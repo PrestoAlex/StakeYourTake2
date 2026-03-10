@@ -28,7 +28,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16">
           {/* Logo */}
-          <div className="flex-1 overflow-hidden" style={{ transform: 'translateX(425px) translateY(2px) scale(1.54375)', height: '64px' }}>
+          <div className="flex-1 overflow-hidden" style={{ transform: 'translateX(25px) translateY(2px) scale(1.54375)', height: '64px' }}>
             <Link 
               to="/" 
               className="flex items-center gap-2 no-underline logo-pulse"
@@ -116,7 +116,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
                 color: location.pathname === '/' ? '#FFFDF8' : '#C9A84C',
                 borderColor: 'rgba(201, 168, 76, 0.4)',
                 borderRadius: '0.25rem',
-                transform: 'translateX(-33px) scale(1.15)',
+                transform: 'translateX(-293px) scale(1.15)',
               }}
             >
               <div className="w-5 h-5 flex items-center justify-center transition-all duration-300">
@@ -147,7 +147,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
                 color: location.pathname === '/leaderboard' ? '#FFFDF8' : '#C9A84C',
                 borderColor: 'rgba(201, 168, 76, 0.4)',
                 borderRadius: '0.25rem',
-                transform: 'translateX(-15px) scale(1.15)',
+                transform: 'translateX(-275px) scale(1.15)',
               }}
             >
               <div className="w-5 h-5 flex items-center justify-center transition-all duration-300">
@@ -175,7 +175,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
                 color: location.pathname === '/profile' ? '#FFFDF8' : '#C9A84C',
                 borderColor: 'rgba(201, 168, 76, 0.4)',
                 borderRadius: '0.25rem',
-                transform: 'translateX(0px) scale(1.15)',
+                transform: 'translateX(-260px) scale(1.15)',
               }}
             >
               <div className="w-5 h-5 flex items-center justify-center transition-all duration-300">
@@ -203,7 +203,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
                 color: location.pathname === '/guide' ? '#FFFDF8' : '#C9A84C',
                 borderColor: 'rgba(201, 168, 76, 0.4)',
                 borderRadius: '0.25rem',
-                transform: 'translateX(15px) scale(1.15)',
+                transform: 'translateX(-245px) scale(1.15)',
               }}
             >
               <div className="w-5 h-5 flex items-center justify-center transition-all duration-300">
@@ -228,7 +228,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
                 background: 'linear-gradient(135deg, #C9A84C, #A68A3E)',
                 color: '#FFFDF8',
                 borderRadius: '0.25rem',
-                transform: 'translateX(30px) scale(1.15)',
+                transform: 'translateX(-230px) scale(1.15)',
               }}
             >
               <div className="w-5 h-5 flex items-center justify-center transition-all duration-300">
@@ -244,7 +244,7 @@ export default function Navbar({ onCreateOpen }: { onCreateOpen: () => void }) {
             </button>
 
             {/* Wallet Connect Component */}
-            <div style={{ transform: 'translateX(47px) scale(1.15)' }}>
+            <div style={{ transform: 'translateX(-213px) scale(1.15)' }}>
               <WalletConnect />
             </div>
             </div>

@@ -53,7 +53,7 @@ export default function EditProfileModal({ isOpen, onClose }: { isOpen: boolean;
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 20 }}
             transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-            className="w-full max-w-lg rounded-2xl p-8 relative"
+            className="w-full max-w-lg rounded-xl p-8 relative"
             style={{
               background: '#FFFDF8',
               border: '1px solid rgba(201,168,76,0.3)',
@@ -68,7 +68,7 @@ export default function EditProfileModal({ isOpen, onClose }: { isOpen: boolean;
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl"
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-xl"
                   style={{ background: '#FFFDF8' }}
                 >
                   <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}

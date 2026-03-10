@@ -110,14 +110,14 @@ let bitcoinPromise = null;
 
 async function loadSDK() {
   if (!sdkPromise) {
-    sdkPromise = import('opnet');
+    sdkPromise = import(/* @vite-ignore */ 'https://esm.sh/opnet@1.8.1-rc.17');
   }
   return sdkPromise;
 }
 
 async function loadBitcoin() {
   if (!bitcoinPromise) {
-    bitcoinPromise = import('@btc-vision/bitcoin');
+    bitcoinPromise = import(/* @vite-ignore */ 'https://esm.sh/@btc-vision/bitcoin@7.0.0-rc.6');
   }
   return bitcoinPromise;
 }
@@ -249,17 +249,10 @@ export async function addStake(contractAddress, senderAddress, network, tokenSym
     const amountBigInt = BigInt(Math.floor(parseFloat(amount) * 1e18));
     console.log('🔍 Amount as BigInt:', amountBigInt);
 
-    if (typeof tokenContract.setTransactionDetails === 'function') {
-      tokenContract.setTransactionDetails({ inputs: [], outputs: [] });
-    }
-
     const approveSimulation = await tokenContract.increaseAllowance(contractAddressObj, amountBigInt);
     if (approveSimulation?.revert) {
-      throw new Error(`Approve revert: ${approveSimulation.revert}`);
+      throw new Error(`Approval revert: ${approveSimulation.revert}`);
     }
-    
-    console.log('🔍 Approve simulation result:', approveSimulation);
-    console.log('🔍 Sending approve transaction...');
 
     const approveReceipt = await approveSimulation.sendTransaction({
       refundTo: senderAddress,
@@ -275,26 +268,54 @@ export async function addStake(contractAddress, senderAddress, network, tokenSym
     console.log('🔍 Checking allowance...');
     const allowanceResult = await tokenContract.allowance(senderAddressObj, contractAddressObj);
     console.log('🔍 Allowance CallResult:', allowanceResult);
+    console.log('🔍 CallResult keys:', Object.keys(allowanceResult));
+    console.log('🔍 CallResult result:', (allowanceResult as any).result);
     
-    // Decode base64 to get actual value
-    const base64Result = (allowanceResult as any)['#resultBase64'];
+    // Try different ways to get the result
+    let base64Result = (allowanceResult as any)['#resultBase64'];
+    if (!base64Result) {
+      base64Result = (allowanceResult as any).result?.toString?.('base64');
+    }
+    if (!base64Result && (allowanceResult as any).result) {
+      // Try to convert result to base64 directly
+      try {
+        const resultBuffer = (allowanceResult as any).result;
+        if (resultBuffer && typeof resultBuffer === 'object') {
+          base64Result = btoa(String.fromCharCode(...new Uint8Array(resultBuffer)));
+        }
+      } catch (e) {
+        console.log('🔍 Failed to convert result to base64:', e);
+      }
+    }
     console.log('🔍 Base64 result:', base64Result);
     
     let allowanceValue: bigint;
     if (base64Result && base64Result !== '') {
-      // Decode base64 to get bytes
-      const decodedBytes = Uint8Array.from(atob(base64Result), c => c.charCodeAt(0));
-      console.log('🔍 Decoded bytes:', decodedBytes);
-      
-      // Convert bytes to hex string
-      const hexString = Array.from(decodedBytes)
-        .map(byte => byte.toString(16).padStart(2, '0'))
-        .join('');
-      console.log('🔍 Hex string:', hexString);
-      
-      // Convert hex to BigInt (little-endian for Bitcoin)
-      allowanceValue = BigInt('0x' + hexString.match(/../g)?.reverse().join('') || '0');
-      console.log('🔍 Current allowance value:', allowanceValue);
+      try {
+        // If it's a BinaryReader object, try to get the actual value
+        if (typeof base64Result === 'object' && base64Result.readUint256) {
+          allowanceValue = base64Result.readUint256();
+          console.log('🔍 Allowance from BinaryReader:', allowanceValue);
+        } else if (typeof base64Result === 'string') {
+          // Original base64 decoding
+          const decodedBytes = Uint8Array.from(atob(base64Result), c => c.charCodeAt(0));
+          console.log('🔍 Decoded bytes:', decodedBytes);
+          
+          const hexString = Array.from(decodedBytes)
+            .map(byte => byte.toString(16).padStart(2, '0'))
+            .join('');
+          console.log('🔍 Hex string:', hexString);
+          
+          allowanceValue = BigInt('0x' + hexString.match(/../g)?.reverse().join('') || '0');
+          console.log('🔍 Current allowance value:', allowanceValue);
+        } else {
+          console.log('🔍 Allowance is 0 (invalid base64Result type)');
+          allowanceValue = 0n;
+        }
+      } catch (e) {
+        console.log('🔍 Failed to decode allowance, setting to 0:', e);
+        allowanceValue = 0n;
+      }
     } else {
       console.log('🔍 Allowance is 0 (empty base64)');
       allowanceValue = 0n;
@@ -307,7 +328,8 @@ export async function addStake(contractAddress, senderAddress, network, tokenSym
 
     if (typeof contract.setTransactionDetails === 'function') {
       contract.setTransactionDetails({ inputs: [], outputs: [] });
-    }
+    } 
+    
 
     const simulation = await contract.addStake(tokenAddressObj, amountBigInt);
     if (simulation?.revert) {

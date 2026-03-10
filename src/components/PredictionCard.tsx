@@ -23,7 +23,7 @@ const categoryConfig: Record<string, { color: string; border: 'gold' | 'silver' 
 const tokenConfig: Record<TokenSymbol, { color: string; bgColor: string; activeBgColor: string }> = {
   BTC: { color: '#C9A84C', bgColor: 'rgba(201,168,76,0.08)', activeBgColor: 'rgba(201,168,76,0.25)' },
   MOTO: { color: '#8A2BE2', bgColor: 'rgba(138,43,226,0.08)', activeBgColor: 'rgba(138,43,226,0.25)' },
-  PIIL: { color: '#FFA500', bgColor: 'rgba(255,165,0,0.08)', activeBgColor: 'rgba(255,165,0,0.25)' },
+  PILL: { color: '#FFA500', bgColor: 'rgba(255,165,0,0.08)', activeBgColor: 'rgba(255,165,0,0.25)' },
 };
 
 function timeAgo(dateStr: string) {
@@ -51,7 +51,7 @@ export default function PredictionCard({ prediction, index }: { prediction: Pred
   const cat = categoryConfig[prediction.category];
   const borderColor = cat.border === 'gold' ? 'rgba(201,168,76,0.35)' : 'rgba(168,168,168,0.35)';
   const glowColor = cat.border === 'gold' ? 'rgba(201,168,76,0.08)' : 'rgba(168,168,168,0.08)';
-  const tokenChoices: TokenSymbol[] = ['BTC', 'MOTO', 'PIIL'];
+  const tokenChoices: TokenSymbol[] = ['BTC', 'MOTO', 'PILL'];
 
   const handleLike = async () => {
     if (!liked) { 

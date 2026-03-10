@@ -7,9 +7,9 @@ body {
 
 .bg-bg-primary {
   /* Combined background with gradient overlay */
-  background-color: #0F1115;
+  background-color: #F5F0E8;
   background-image: 
-    linear-gradient(135deg, rgba(15, 17, 21, 0.4), rgba(15, 17, 21, 0.2)),
+    linear-gradient(135deg, rgba(245, 240, 232, 0.4), rgba(245, 240, 232, 0.2)),
     url('/custom-background.png');
   background-size: cover, cover;
   background-position: center, center;
@@ -28,9 +28,9 @@ body {
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(15, 17, 21, 0.1) 0%,
-    rgba(15, 17, 21, 0.05) 50%,
-    rgba(15, 17, 21, 0.1) 100%
+    rgba(245, 240, 232, 0.1) 0%,
+    rgba(245, 240, 232, 0.05) 50%,
+    rgba(245, 240, 232, 0.1) 100%
   );
   pointer-events: none;
   z-index: -1;

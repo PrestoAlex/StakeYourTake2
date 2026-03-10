@@ -5,7 +5,7 @@ export const TOKEN_ICONS_BASE_PATH = '/icons/tokens/';
 export const TOKEN_ICONS = {
   BTC: 'btc.png',
   MOTO: 'moto.png', 
-  PIIL: 'pill.png',  // Changed from piil.png to pill.png to match your filename
+  PILL: 'pill.png',  // Changed from piil.png to pill.png to match your filename
 } as const;
 
 // Load token icon URLs

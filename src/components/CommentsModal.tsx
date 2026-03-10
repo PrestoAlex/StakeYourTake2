@@ -96,7 +96,7 @@ export default function CommentsModal({ isOpen, onClose, predictionId, predictio
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl"
+            className="bg-white rounded-xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl"
             style={{ background: '#F7F4ED' }}
             onClick={(e) => e.stopPropagation()}
           >

@@ -71,7 +71,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         tokenBalances: {
           BTC: realBTCBalance,
           MOTO: parseFloat(balancesObj.MOTO || '0') || prev.tokenBalances?.MOTO || 12500,
-          PIIL: parseFloat(balancesObj.PIIL || '0') || prev.tokenBalances?.PIIL || 8400,
+          PILL: parseFloat(balancesObj.PILL || '0') || prev.tokenBalances?.PILL || 8400,
         }
       }));
 
@@ -137,7 +137,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         tokenBalances: {
           BTC: token === 'BTC' ? Math.max(0, (prev.tokenBalances?.BTC ?? prev.balance) - stake) : (prev.tokenBalances?.BTC ?? prev.balance),
           MOTO: token === 'MOTO' ? Math.max(0, (prev.tokenBalances?.MOTO ?? 12500) - stake) : (prev.tokenBalances?.MOTO ?? 12500),
-          PIIL: token === 'PIIL' ? Math.max(0, (prev.tokenBalances?.PIIL ?? 8400) - stake) : (prev.tokenBalances?.PIIL ?? 8400),
+          PILL: token === 'PILL' ? Math.max(0, (prev.tokenBalances?.PILL ?? 8400) - stake) : (prev.tokenBalances?.PILL ?? 8400),
         },
         predictions: prev.predictions + 1,
         totalStaked: prev.totalStaked + stake,
@@ -185,7 +185,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         tokenBalances: {
           BTC: token === 'BTC' ? Math.max(0, (prev.tokenBalances?.BTC ?? prev.balance) - amount) : (prev.tokenBalances?.BTC ?? prev.balance),
           MOTO: token === 'MOTO' ? Math.max(0, (prev.tokenBalances?.MOTO ?? 12500) - amount) : (prev.tokenBalances?.MOTO ?? 12500),
-          PIIL: token === 'PIIL' ? Math.max(0, (prev.tokenBalances?.PIIL ?? 8400) - amount) : (prev.tokenBalances?.PIIL ?? 8400),
+          PILL: token === 'PILL' ? Math.max(0, (prev.tokenBalances?.PILL ?? 8400) - amount) : (prev.tokenBalances?.PILL ?? 8400),
         },
         totalStaked: prev.totalStaked + amount,
         reputation: prev.reputation + 5,
@@ -232,7 +232,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         tokenBalances: {
           BTC: token === 'BTC' ? Math.max(0, (prev.tokenBalances?.BTC ?? prev.balance) - amount) : (prev.tokenBalances?.BTC ?? prev.balance),
           MOTO: token === 'MOTO' ? Math.max(0, (prev.tokenBalances?.MOTO ?? 12500) - amount) : (prev.tokenBalances?.MOTO ?? 12500),
-          PIIL: token === 'PIIL' ? Math.max(0, (prev.tokenBalances?.PIIL ?? 8400) - amount) : (prev.tokenBalances?.PIIL ?? 8400),
+          PILL: token === 'PILL' ? Math.max(0, (prev.tokenBalances?.PILL ?? 8400) - amount) : (prev.tokenBalances?.PILL ?? 8400),
         },
         reputation: prev.reputation + 2,
       }));
@@ -310,7 +310,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           ...prev, 
           wallet: wallet.address!,
           balance: realBalance,
-          tokenBalances: prev.tokenBalances || { BTC: realBalance, MOTO: 12500, PIIL: 8400 }
+          tokenBalances: prev.tokenBalances || { BTC: realBalance, MOTO: 12500, PILL: 8400 }
         };
         // Save to localStorage
         localStorage.setItem('userProfile', JSON.stringify({

@@ -46,7 +46,7 @@ export interface Badge {
   border: 'gold' | 'silver';
 }
 
-export type TokenSymbol = 'BTC' | 'MOTO' | 'PIIL';
+export type TokenSymbol = 'BTC' | 'MOTO' | 'PILL';
 export type Category = 'all' | 'bitcoin' | 'crypto' | 'tech' | 'world';
 export type SortBy = 'trending' | 'newest' | 'highest-stake';
 export type ConfidenceLevel = 'low' | 'medium' | 'high';
