@@ -85,7 +85,7 @@ export default function TestBlockchain() {
     
     try {
       stakeService.setSenderAddress(walletAddress);
-      const stakeId = await stakeService.addStake(tokenSymbol, amount.toString());
+      const stakeId = await stakeService.addStake(tokenSymbol, parseFloat(amount.toString()));
       if (stakeId) {
         setResult(`✅ Stake added! ID: ${stakeId}`);
       } else {

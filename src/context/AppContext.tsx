@@ -166,7 +166,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         return;
       }
       
-      const stakeId = await stakeService.addStake(token, amount.toString());
+      const stakeId = await stakeService.addStake(token, parseFloat(amount.toString()));
       
       if (!stakeId) {
         console.error('❌ Failed to add stake on blockchain');
